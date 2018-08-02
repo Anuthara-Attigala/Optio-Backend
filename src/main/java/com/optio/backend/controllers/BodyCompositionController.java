@@ -8,6 +8,7 @@ package com.optio.backend.controllers;
 import com.optio.backend.models.BodyComposition;
 import com.optio.backend.repositories.BodyCompositionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,5 +33,10 @@ public class BodyCompositionController {
 	public Iterable<BodyComposition> bodycomp(){
 		//System.out.print(something);
 		return bodyCompositionRepository.findAll();
+	}
+        
+        @RequestMapping(method=RequestMethod.GET,value="/bodycomposition/{nic}")
+	public BodyComposition show(@PathVariable String nic){
+		return bodyCompositionRepository.findByNic(nic);
 	}
 }
