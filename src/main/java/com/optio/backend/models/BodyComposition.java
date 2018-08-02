@@ -15,19 +15,24 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection="bodycomposition")
 public class BodyComposition {
     @Id
-    private  String id;
+    private String id;
     private String nic;
+    private String date;
     private String weight;
     private String waist;
     private String hip;
-    private String date;
+    private String height;
+    private String activitylevel;
 
-    public BodyComposition(String id, String nic, String weight, String waist, String hip) {
+    public BodyComposition(String id, String nic, String date, String weight, String waist, String hip, String height, String activitylevel) {
         this.id = id;
         this.nic = nic;
+        this.date = date;
         this.weight = weight;
         this.waist = waist;
         this.hip = hip;
+        this.height = height;
+        this.activitylevel = activitylevel;
     }
 
     public String getId() {
@@ -44,6 +49,14 @@ public class BodyComposition {
 
     public void setNic(String nic) {
         this.nic = nic;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getWeight() {
@@ -70,14 +83,20 @@ public class BodyComposition {
         this.hip = hip;
     }
 
-    public String getDate() {
-        return date;
+    public String getHeight() {
+        return height;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setHeight(String height) {
+        this.height = height;
     }
 
-    
+    public String getActivitylevel() {
+        return activitylevel;
+    }
+
+    public void setActivitylevel(String activitylevel) {
+        this.activitylevel = activitylevel;
+    }
     
 }
