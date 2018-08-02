@@ -15,7 +15,7 @@ import org.springframework.data.repository.CrudRepository;
 public interface BodyCompositionRepository extends CrudRepository<BodyComposition, String>{
 
     BodyComposition findByNic(String nic);
-    
+
     @Override
 	void delete(BodyComposition deleted);
     

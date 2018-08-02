@@ -7,11 +7,15 @@ package com.optio.backend.controllers;
 
 import com.optio.backend.models.BodyComposition;
 import com.optio.backend.repositories.BodyCompositionRepository;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -39,4 +43,24 @@ public class BodyCompositionController {
 	public BodyComposition show(@PathVariable String nic){
 		return bodyCompositionRepository.findByNic(nic);
 	}
+        
+        /**@RequestMapping(method=RequestMethod.PUT,value="/bodycomposition/{nic}")
+	public @ResponseBody String update(@PathVariable String nic ,@RequestBody BodyComposition bodyComposition){
+		bodyCompositionRepository.save(bodyComposition);
+		return bodyComposition.getId();
+	}**/
+        
+        @PutMapping("/bodycomposition/{id}")
+        public ResponseEntity<Object> update(@RequestBody BodyComposition bodyComposition,@PathVariable String id)
+        {
+            Optional<BodyComposition> bodyCompOpttional=bodyCompositionRepository.findById(id);
+            if(!bodyCompOpttional.isPresent())
+            {
+                return ResponseEntity.notFound().build();
+            }
+            bodyComposition.setId(id);
+            bodyCompositionRepository.save(bodyComposition);
+            return ResponseEntity.noContent().build();
+        }
+    
 }
