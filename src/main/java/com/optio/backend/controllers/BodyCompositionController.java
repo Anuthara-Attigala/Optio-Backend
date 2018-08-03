@@ -27,7 +27,7 @@ public class BodyCompositionController {
     @Autowired
 	BodyCompositionRepository bodyCompositionRepository;
     
-    @RequestMapping(method=RequestMethod.POST,value="/bodycomposition")
+        @RequestMapping(method=RequestMethod.POST,value="/bodycomposition")
 	public String save(@RequestBody BodyComposition bodyComposition){
 		bodyCompositionRepository.save(bodyComposition);
 		return bodyComposition.getId();
