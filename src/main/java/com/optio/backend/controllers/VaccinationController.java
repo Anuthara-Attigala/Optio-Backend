@@ -9,8 +9,11 @@ import com.optio.backend.models.BodyComposition;
 import com.optio.backend.models.Vaccination;
 import com.optio.backend.repositories.VaccinationRepository;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,4 +39,17 @@ public class VaccinationController {
                 List<Vaccination> vaccines=(List<Vaccination>) vaccinationRepository.findByNic(nic);
 		return vaccines;
 	}
+        
+        @PutMapping("/vaccination/{id}")
+        public ResponseEntity<Object> update(@RequestBody Vaccination vaccination,@PathVariable String id)
+        {
+            Optional<Vaccination> vaccineOpttional=vaccinationRepository.findById(id);
+            if(!vaccineOpttional.isPresent())
+            {
+                return ResponseEntity.notFound().build();
+            }
+            vaccination.setId(id);
+            vaccinationRepository.save(vaccination);
+            return ResponseEntity.noContent().build();
+        }
 }
