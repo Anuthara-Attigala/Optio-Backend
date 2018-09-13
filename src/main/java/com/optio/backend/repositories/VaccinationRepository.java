@@ -15,6 +15,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface VaccinationRepository extends CrudRepository<Vaccination, String>{
     List<Vaccination> findByNic(String nic);
-    @Override
-	void delete(Vaccination deleted);
+    //@Override
+	//void delete(Vaccination deleted);
 }
