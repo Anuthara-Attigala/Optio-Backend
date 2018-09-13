@@ -6,6 +6,7 @@
 package com.optio.backend.repositories;
 
 import com.optio.backend.models.Vaccination;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -13,8 +14,7 @@ import org.springframework.data.repository.CrudRepository;
  * @author Rishni
  */
 public interface VaccinationRepository extends CrudRepository<Vaccination, String>{
-    Vaccination findByNic(String nic);
-
+    List<Vaccination> findByNic(String nic);
     @Override
 	void delete(Vaccination deleted);
 }
