@@ -5,9 +5,12 @@
  */
 package com.optio.backend.controllers;
 
+import com.optio.backend.models.BodyComposition;
 import com.optio.backend.models.Vaccination;
 import com.optio.backend.repositories.VaccinationRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,5 +29,11 @@ public class VaccinationController {
 	public String save(@RequestBody Vaccination vaccination){
 		vaccinationRepository.save(vaccination);
 		return vaccination.getId();
+	}
+        
+        @RequestMapping(method=RequestMethod.GET,value="/vaccination/{nic}")
+	public List<Vaccination> show(@PathVariable String nic){
+                List<Vaccination> vaccines=(List<Vaccination>) vaccinationRepository.findByNic(nic);
+		return vaccines;
 	}
 }
