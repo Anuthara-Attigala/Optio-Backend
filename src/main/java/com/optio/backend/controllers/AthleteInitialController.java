@@ -28,6 +28,14 @@ public class AthleteInitialController {
 	@RequestMapping(method=RequestMethod.GET,value="/athleteInit/{nic}")
 	public AthleteInitial show(@PathVariable String nic){
 		return athleteInitalRepository.findByNic(nic);
+	}@RequestMapping(method=RequestMethod.PUT,value="/athleteInit")
+	public String update(@RequestBody AthleteInitial athleteInitial){
+		/*AthleteInitial athlete = athleteInitalRepository.findByNic(nic);
+		athlete.setApproved("true");*/
+		athleteInitalRepository.save(athleteInitial);
+		return athleteInitial.getId();
 	}
+	
+	
 
 }
