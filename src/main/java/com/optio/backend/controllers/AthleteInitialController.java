@@ -20,6 +20,12 @@ public class AthleteInitialController {
 		//System.out.print(something);
 		return athleteInitalRepository.findAll();
 	}
+	@RequestMapping(method=RequestMethod.GET,value="/athleteInit/trainerID/{trainerID}")
+	public Iterable<AthleteInitial> findByNIC(@PathVariable String trainerID){
+		//System.out.print(something);
+		return athleteInitalRepository.findByTrainerID(trainerID);
+	}
+	
 	@RequestMapping(method=RequestMethod.POST,value="/athleteInit")
 	public String save(@RequestBody AthleteInitial athleteInitial){
 		athleteInitalRepository.save(athleteInitial);
@@ -35,7 +41,11 @@ public class AthleteInitialController {
 		athleteInitalRepository.save(athleteInitial);
 		return athleteInitial.getId();
 	}
-	
+	@RequestMapping(method=RequestMethod.GET,value="/athleteInit/trainerID/{trainerID}/approved/{approve}")
+	public Iterable<AthleteInitial> findByNICAndApproval(@PathVariable String trainerID,@PathVariable String approve){
+		//System.out.print(something);
+		return athleteInitalRepository.findByTrainerIDAndApproved(trainerID, approve);
+	}
 	
 
 }

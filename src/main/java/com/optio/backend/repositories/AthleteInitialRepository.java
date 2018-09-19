@@ -9,6 +9,10 @@ public interface AthleteInitialRepository extends CrudRepository<AthleteInitial,
 	
 	AthleteInitial findByNic(String nic);
 	
+	Iterable<AthleteInitial> findByTrainerID(String trainerID);
+	
+	Iterable<AthleteInitial> findByTrainerIDAndApproved(String trainerID, String Approved);
+	
 	@Override
 	void delete(AthleteInitial deleted);
 	
