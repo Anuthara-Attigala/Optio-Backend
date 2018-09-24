@@ -5,6 +5,7 @@
  */
 package com.optio.backend.models;
 
+import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,9 +19,9 @@ public class InputSuggestion {
     private String id;
     private String nic;
     private String input;
-    private String suggestion;
+    private List suggestion;
 
-    public InputSuggestion(String id, String nic, String input, String suggestion) {
+    public InputSuggestion(String id, String nic, String input, List suggestion) {
         this.id = id;
         this.nic = nic;
         this.input = input;
@@ -51,15 +52,14 @@ public class InputSuggestion {
         this.input = input;
     }
 
-    public String getSuggestion() {
+    public List getSuggestion() {
         return suggestion;
     }
 
-    public void setSuggestion(String suggestion) {
+    public void setSuggestion(List suggestion) {
         this.suggestion = suggestion;
     }
     
     
-
     
 }
