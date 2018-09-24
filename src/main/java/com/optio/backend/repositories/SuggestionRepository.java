@@ -15,4 +15,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface SuggestionRepository extends CrudRepository<Suggestion, String>  {
     List<Suggestion> findByStressor(String stressor);
+    //List<Suggestion> findAll();
+    List<Suggestion> findAll();
 }
