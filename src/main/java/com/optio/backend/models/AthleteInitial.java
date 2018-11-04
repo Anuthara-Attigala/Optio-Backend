@@ -12,7 +12,8 @@ public class AthleteInitial {
 	String joinedDate;
 	String dob;
 	String trainerID;
-	public AthleteInitial(String id, String name, String nic, String joinedDate, String dob, String trainerID) {
+	String approved;
+	public AthleteInitial(String id, String name, String nic, String joinedDate, String dob, String trainerID,String approved) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -20,6 +21,13 @@ public class AthleteInitial {
 		this.joinedDate = joinedDate;
 		this.dob = dob;
 		this.trainerID = trainerID;
+		this.approved = approved;
+	}
+	public String getApproved() {
+		return approved;
+	}
+	public void setApproved(String approved) {
+		this.approved = approved;
 	}
 	public String getId() {
 		return id;
