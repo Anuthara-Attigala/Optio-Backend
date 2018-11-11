@@ -5,19 +5,16 @@
  */
 package com.optio.backend.repositories;
 
+import com.optio.backend.models.ConsumedTotalCalorie;
 import com.optio.backend.models.DailyCalorieIntake;
-
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  *
- * @author HPfindFirst1ByNicOrderByDateDesc
+ * @author HP
  */
-public interface DailyCalorieIntakeRepository extends CrudRepository<DailyCalorieIntake, String> {
-	 DailyCalorieIntake findFirst1ByNicOrderByDateDesc(String nic);
-         //DailyCalorieIntake findAll(String nic);
-         
-       // DailyCalorieIntake update(String RemainingCal);
-      
+public interface ConsumedTotalCalorieRepository extends CrudRepository<ConsumedTotalCalorie, String> {
+    
+    ConsumedTotalCalorie save(ConsumedTotalCalorie consumedTotalCalorie);
 }
