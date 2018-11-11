@@ -12,8 +12,12 @@ import org.springframework.data.repository.CrudRepository;
 
 /**
  *
- * @author HP
+ * @author HPfindFirst1ByNicOrderByDateDesc
  */
 public interface DailyCalorieIntakeRepository extends CrudRepository<DailyCalorieIntake, String> {
-	List<DailyCalorieIntake> findByNic(String nic);
+	 DailyCalorieIntake findFirst1ByNicOrderByDateDesc(String nic);
+         //DailyCalorieIntake findAll(String nic);
+         
+       // DailyCalorieIntake update(String RemainingCal);
+      
 }
