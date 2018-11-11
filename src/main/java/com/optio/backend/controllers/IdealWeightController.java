@@ -22,8 +22,17 @@ public class IdealWeightController {
 	}
 	@RequestMapping(method=RequestMethod.PUT,value="/idealweight")
 	public String update(@RequestBody IdealWeight idealweight){
-		idealWeightRepository.save(idealweight);
-		return idealweight.getId();
+		IdealWeight newIdealWeight = idealWeightRepository.findByNic(idealweight.getNic());
+		if(newIdealWeight!=null){
+			newIdealWeight.setWeight(idealweight.getWeight());
+			idealWeightRepository.save(newIdealWeight);
+			return newIdealWeight.getId();
+		}
+		else{
+			idealWeightRepository.save(idealweight);
+			return idealweight.getId();
+		}
+		
 	}
 	@RequestMapping(method=RequestMethod.GET,value="/idealweight/{nic}")
 	public IdealWeight getWeight(@PathVariable String nic){
