@@ -7,6 +7,7 @@ package com.optio.backend.repositories;
 
 
 import com.optio.backend.models.CustomizeMealPlan;
+import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 /**
@@ -14,5 +15,7 @@ import org.springframework.data.repository.CrudRepository;
  * @author HP
  */
 public interface CustomizeMealPlanRepository extends CrudRepository<CustomizeMealPlan, String> {
-    
+
+    @Override
+    List<CustomizeMealPlan> findAll();   
 }
