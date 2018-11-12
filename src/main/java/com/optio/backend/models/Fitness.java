@@ -24,13 +24,13 @@ public class Fitness {
     private String flightTime;
     private String fatigueLevel;
     private String fitnessPerDay;
-    private String CTL;
+    private String ctl;
     private String fatiguePerDay;
-    private String ATL;
-    private String TSB;
+    private String atl;
+    private String tsb;
     private String date;
 
-    public Fitness(String id, String trainerID, String athleteNIC, String athleteName, String shuttleLoad, String type, String flightTime, String fatigueLevel, String fitnessPerDay, String CTL, String fatiguePerDay, String ATL, String TSB, String date) {
+    public Fitness(String id, String trainerID, String athleteNIC, String athleteName, String shuttleLoad, String type, String flightTime, String fatigueLevel, String fitnessPerDay, String ctl, String fatiguePerDay, String atl, String tsb, String date) {
         this.id = id;
         this.trainerID = trainerID;
         this.athleteNIC = athleteNIC;
@@ -40,10 +40,10 @@ public class Fitness {
         this.flightTime = flightTime;
         this.fatigueLevel = fatigueLevel;
         this.fitnessPerDay = fitnessPerDay;
-        this.CTL = CTL;
+        this.ctl = ctl;
         this.fatiguePerDay = fatiguePerDay;
-        this.ATL = ATL;
-        this.TSB = TSB;
+        this.atl = atl;
+        this.tsb = tsb;
         this.date = date;
     }
 
@@ -119,12 +119,12 @@ public class Fitness {
         this.fitnessPerDay = fitnessPerDay;
     }
 
-    public String getCTL() {
-        return CTL;
+    public String getCtl() {
+        return ctl;
     }
 
-    public void setCTL(String CTL) {
-        this.CTL = CTL;
+    public void setCtl(String ctl) {
+        this.ctl = ctl;
     }
 
     public String getFatiguePerDay() {
@@ -135,20 +135,20 @@ public class Fitness {
         this.fatiguePerDay = fatiguePerDay;
     }
 
-    public String getATL() {
-        return ATL;
+    public String getAtl() {
+        return atl;
     }
 
-    public void setATL(String ATL) {
-        this.ATL = ATL;
+    public void setAtl(String atl) {
+        this.atl = atl;
     }
 
-    public String getTSB() {
-        return TSB;
+    public String getTsb() {
+        return tsb;
     }
 
-    public void setTSB(String TSB) {
-        this.TSB = TSB;
+    public void setTsb(String tsb) {
+        this.tsb = tsb;
     }
 
     public String getDate() {
@@ -158,6 +158,6 @@ public class Fitness {
     public void setDate(String date) {
         this.date = date;
     }
-    
+
     
 }
