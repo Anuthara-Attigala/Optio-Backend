@@ -90,10 +90,10 @@ public class DailyCalorieIntakeController {
 //	public Iterable<DailyCalorieIntake> calorie(){
 //		return dailyCalorieIntakeRepository.findAll();
 //	}
-//        @RequestMapping(method=RequestMethod.GET,value="/calorie/{nic}")
-//	public DailyCalorieIntake lastFeedback(@PathVariable String nic){
-//		return dailyCalorieIntakeRepository.findByNicOrderByDate(nic);
-//	}
+        @RequestMapping(method=RequestMethod.GET,value="/calorie/{nic}")
+	public DailyCalorieIntake lastFeedback(@PathVariable String nic){
+		return dailyCalorieIntakeRepository.findFirst1ByNicOrderByDateDesc(nic);
+	}
         
         //Update Daily calorie Intake
         
