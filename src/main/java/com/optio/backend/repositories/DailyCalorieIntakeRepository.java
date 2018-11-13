@@ -16,6 +16,7 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface DailyCalorieIntakeRepository extends CrudRepository<DailyCalorieIntake, String> {
 	 DailyCalorieIntake findFirst1ByNicOrderByDateDesc(String nic);
+         DailyCalorieIntake findByNicOrderByDate(String nic);
          //DailyCalorieIntake findAll(String nic);
          
        // DailyCalorieIntake update(String RemainingCal);
